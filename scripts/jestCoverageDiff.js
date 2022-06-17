@@ -101,6 +101,8 @@ const getJestCoverage = async () => {
   await clearJestCache();
   const jestCoverageCommand = runner('npm run test --coverage');
   return jestCoverageCommand.then(() => {
+    runner('ls -la');
+    runner('ls -la coverage');
     const COVERAGE_FILE_PATH = path.join(__pwd, COVERAGE_DIR, COVERAGE_SUMMARY);
     delete require.cache[require.resolve(COVERAGE_FILE_PATH)]
     const coverage = require(COVERAGE_FILE_PATH);
