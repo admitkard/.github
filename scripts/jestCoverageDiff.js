@@ -75,7 +75,7 @@ const transformFilesMeta = (fileName, status) => {
 }
 
 const getChangedFiles = () => {
-  const changedFilesGit = execSync('git diff --name-status dev').toString().split('\n');
+  const changedFilesGit = execSync('git diff dev --name-status').toString().split('\n');
   const gitStatusRegex = /(?<status>\w+)\s+(?:.*\s+)?(?<fileName>.*)/m;
   changedFilesGit.forEach((line) => {
     const match = gitStatusRegex.exec(line);
