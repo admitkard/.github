@@ -8,6 +8,7 @@ const __pwd = process.cwd();
 console.log({ __pwd });
 console.log('ls', execSync('ls -la').toString());
 console.log('ls..', execSync('ls -la ..').toString());
+console.log('ls..', execSync('git branches').toString());
 const jestConfig = require(path.join(__pwd, 'jest.config.js'));
 const packageJson = require(path.join(__pwd, 'package.json'));
 
