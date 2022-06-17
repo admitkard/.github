@@ -6,8 +6,8 @@ const { execSync } = require('child_process');
 const { runner } = require('./utils');
 const __pwd = process.cwd();
 console.log({ __pwd });
-console.log(execSync('ls -la').toString());
-console.log(execSync('ls -la ..').toString());
+runner('ls -la');
+runner('ls -la ..');
 const jestConfig = require(path.join(__pwd, 'jest.config.js'));
 const packageJson = require(path.join(__pwd, 'package.json'));
 
