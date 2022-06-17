@@ -19,6 +19,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Jest Coverage
         run: |
-          npm run coverage
+          pwd
+          node ./scripts/jestCoverageDiff.js
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
