@@ -117,7 +117,8 @@ const getJestCoverage = async () => {
   });
 }
 
-const getCurrentBranchJestCoverage = () => {
+const getCurrentBranchJestCoverage = async () => {
+  await runner(`yarn install`);
   return getJestCoverage().then((coverage) => {
     filesStatus.total = { coverage: {} };
     filesStatus.total.coverage.new = coverage.total;
@@ -128,8 +129,9 @@ const getCurrentBranchJestCoverage = () => {
   })
 }
 
-const getBaseBranchJestCoverage = () => {
-  runner(`git checkout ${BASE_BRANCH}`);
+const getBaseBranchJestCoverage = async () => {
+  await runner(`git checkout ${BASE_BRANCH}`);
+  await runner(`yarn install`);
   return getJestCoverage().then((coverage) => {
     if (!filesStatus.total) {
       filesStatus.total = { coverage: {} };
