@@ -99,7 +99,7 @@ const clearJestCache = async () => {
 
 const getJestCoverage = async () => {
   await clearJestCache();
-  const jestCoverageCommand = runner('npm run test --coverage');
+  const jestCoverageCommand = runner('yarn test --coverage');
   return jestCoverageCommand.then(() => {
     runner('ls -la');
     runner('ls -la coverage');

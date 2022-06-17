@@ -86,6 +86,8 @@ const runner = (command, meta = {}) => {
     if (meta.nodeBin) {
       raw = nodeBin(_command);
     }
+
+    console.debug({ args });
     
     const cmd = Array.isArray(args) ? spawn(raw, args, options) : spawn(raw, options);
 
